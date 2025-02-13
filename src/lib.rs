@@ -66,7 +66,7 @@ pub mod import {
     pub use core::{option::Option, result::Result};
 }
 
-/// Similar to the `?` operator but for `const` contexts.
+/// Similar to the `?` operator used on [`Result`] but for `const` contexts.
 ///
 /// Note that no conversions are performed, as it is impossible in `const` contexts.
 #[macro_export]
@@ -75,6 +75,17 @@ macro_rules! const_try {
         match $result {
             $crate::import::Result::Ok(value) => value,
             $crate::import::Result::Err(error) => return $crate::import::Result::Err(error),
+        }
+    };
+}
+
+/// Equivalent to the `?` operator used on [`Option`] but for `const` contexts.
+#[macro_export]
+macro_rules! const_none {
+    ($option: expr) => {
+        match $option {
+            $crate::import::Option::Some(value) => value,
+            $crate::import::Option::None => return $crate::import::Option::None,
         }
     };
 }
