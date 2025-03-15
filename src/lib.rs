@@ -90,6 +90,17 @@ macro_rules! const_none {
     };
 }
 
+/// Same as [`Option::map`] but for `const` contexts.
+#[macro_export]
+macro_rules! const_map {
+    ($option: expr => $function: expr) => {
+        match $option {
+            $crate::import::Option::Some(value) => $crate::import::Option::Some($function(value)),
+            $crate::import::Option::None => $crate::import::Option::None,
+        }
+    };
+}
+
 /// Same as [`Result::ok`] but for `const` contexts.
 #[macro_export]
 macro_rules! const_ok {
@@ -108,6 +119,28 @@ macro_rules! const_err {
         match $result {
             $crate::import::Result::Ok(_) => $crate::import::Option::None,
             $crate::import::Result::Err(error) => $crate::import::Option::Some(error),
+        }
+    };
+}
+
+/// Same as [`Result::map`] but for `const` contexts.
+#[macro_export]
+macro_rules! const_map_ok {
+    ($result: expr => $function: expr) => {
+        match $result {
+            $crate::import::Result::Ok(value) => $crate::import::Result::Ok($function(value)),
+            $crate::import::Result::Err(error) => $crate::import::Result::Err(error),
+        }
+    };
+}
+
+/// Same as [`Result::map_err`] but for `const` contexts.
+#[macro_export]
+macro_rules! const_map_err {
+    ($result: expr => $function: expr) => {
+        match $result {
+            $crate::import::Result::Ok(value) => $crate::import::Result::Ok(value),
+            $crate::import::Result::Err(error) => $crate::import::Result::Err($function(error)),
         }
     };
 }

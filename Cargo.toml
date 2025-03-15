@@ -1,6 +1,6 @@
 [package]
 name = "const-macros"
-version = "0.1.1"
+version = "0.2.0"
 authors = ["nekitdev <nekit@nekit.dev>"]
 edition = "2021"
 description = "Various macros for const contexts."
@@ -11,4 +11,4 @@ license = "MIT"
 keywords = ["const", "macro"]
 
 [dev-dependencies.thiserror]
-version = "2.0.11"
+version = "2.0.12"
