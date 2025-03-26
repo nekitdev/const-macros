@@ -155,6 +155,16 @@ macro_rules! const_early {
     };
 }
 
+/// Returns early with [`None`] if the condition is true.
+#[macro_export]
+macro_rules! const_quick {
+    ($condition: expr) => {
+        if $condition {
+            return $crate::import::Option::None;
+        }
+    };
+}
+
 /// Similar to [`assert!`] but for `const` contexts.
 #[macro_export]
 macro_rules! const_assert {
