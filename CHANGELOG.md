@@ -2,6 +2,12 @@
 
 <!-- changelogging: start -->
 
+## [0.3.0](https://github.com/nekitdev/const-macros/tree/v0.3.0) (2025-03-26)
+
+### Features
+
+- Added `const_quick!` that returns early with `None`.
+
 ## [0.2.0](https://github.com/nekitdev/const-macros/tree/v0.2.0) (2025-03-15)
 
 ### Features
