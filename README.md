@@ -21,7 +21,7 @@ Or by directly specifying it in the configuration like so:
 
 ```toml
 [dependencies]
-const-macros = "0.3.0"
+const-macros = "0.3.1"
 ```
 
 Alternatively, you can add it directly from the source:

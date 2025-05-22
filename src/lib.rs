@@ -176,7 +176,7 @@ macro_rules! const_assert {
 /// Similar to [`assert_eq!`] but for `const` contexts.
 #[macro_export]
 macro_rules! const_assert_eq {
-    ($left: expr, $right: expr, $(,)?) => {
+    ($left: expr, $right: expr $(,)?) => {
         $crate::const_assert!($left == $right);
     };
 }
@@ -184,7 +184,7 @@ macro_rules! const_assert_eq {
 /// Similar to [`assert_ne!`] but for `const` contexts.
 #[macro_export]
 macro_rules! const_assert_ne {
-    ($left: expr, $right: expr, $(,)?) => {
+    ($left: expr, $right: expr $(,)?) => {
         $crate::const_assert!($left != $right);
     };
 }
