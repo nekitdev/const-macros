@@ -2,6 +2,12 @@
 
 <!-- changelogging: start -->
 
+## [0.3.1](https://github.com/nekitdev/const-macros/tree/v0.3.1) (2025-05-22)
+
+### Fixes
+
+- Fixed `const_assert_eq!` and `const_assert_ne!` macros, making trailing commas optional.
+
 ## [0.3.0](https://github.com/nekitdev/const-macros/tree/v0.3.0) (2025-03-26)
 
 ### Features
